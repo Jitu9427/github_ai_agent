@@ -1,0 +1,102 @@
+GitHub AI Agent - README
+This project is an AI-powered chatbot that lets you manage your GitHub account through a conversational interface. It uses Google Gemini LLM to understand user input and performs actions on GitHub using the PyGithub library.
+
+🔧 Features
+Control via conversation: Perform GitHub actions using simple sentences like "Create a new repository" or "Show me all my repositories."
+
+Secure authentication: Uses OAuth2 to securely connect to your GitHub account.
+
+Comprehensive operations: Manage repositories, files, collaborators, and much more.
+
+🚀 Setup
+Follow the steps below to run this project.
+
+✅ Step 1: Clone the Project
+First, get the project files onto your local machine. You can copy and paste the provided code into a folder named github_chatbot.
+
+✅ Step 2: Create a GitHub OAuth App
+You need an OAuth app to allow your bot to access your GitHub account.
+
+Log in to your GitHub account and go to Settings.
+
+Scroll down in the left sidebar and click on Developer settings.
+
+Go to OAuth Apps, then click New OAuth App.
+
+Fill out the form:
+Application name: Give any name, e.g., Python GitHub Bot.
+
+Homepage URL: Enter your server's URL. For development, use:
+http://127.0.0.1:5000
+
+Authorization callback URL: This is important. Set it to:
+http://127.0.0.1:5000/callback
+
+Click Register application.
+
+You will now see a Client ID. Click Generate a new client secret to get the secret. Copy both values — you'll need them in the next step.
+
+✅ Step 3: Get a Gemini API Key
+Go to Google AI for Developers.
+
+Click "Get API key in Google AI Studio" and create your API key.
+
+Copy the API key.
+
+✅ Step 4: Set Environment Variables
+Inside the server folder, create a file named .env and add the following content. Replace the placeholders with your actual values:
+
+env
+Copy
+Edit
+GEMINI_API_KEY=your_gemini_api_key_here
+GITHUB_CLIENT_ID=your_github_client_id_here
+GITHUB_CLIENT_SECRET=your_github_client_secret_here
+✅ Step 5: Install Dependencies
+Make sure you have Python 3.7+ installed.
+
+Then create a requirements.txt file inside the server folder and add the following dependencies:
+
+txt
+Copy
+Edit
+Flask
+requests
+PyGithub
+python-dotenv
+google-generativeai
+Then install them by running:
+
+bash
+Copy
+Edit
+pip install -r requirements.txt
+✅ Step 6: Run the Application
+Start the server:
+Open a new terminal, navigate to the server directory, and run:
+
+bash
+Copy
+Edit
+python server.py
+You should see the server running at:
+http://127.0.0.1:5000
+
+Start the client:
+Open another terminal, navigate to the client directory, and run:
+
+bash
+Copy
+Edit
+python client.py
+✅ Step 7: Authorize the Bot
+When you run the client for the first time, it will tell you you're not logged in and provide a login URL.
+
+Copy the URL and paste it into your web browser.
+
+GitHub will ask whether you want to authorize the bot to access your account.
+
+Click Authorize.
+
+Once authorized, you'll see a login confirmation in the client terminal, and you can start chatting with the bot!
+
