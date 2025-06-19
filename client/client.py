@@ -15,7 +15,10 @@ def check_auth():
         data = response.json()
         if data.get("logged_in"):
             user_info = data.get("user", {})
-            print(f"You are logged in as '{user_info.get('login', 'Unknown')}'.")
+            if isinstance(user_info, dict):
+                print(f"You are logged in as '{user_info.get('login', 'Unknown')}'.")
+            else:
+                print(user_info)  # Just print the message if it's a string
             return True
         else:
             print("You are not logged in.")
@@ -25,6 +28,7 @@ def check_auth():
         print(f"Failed to connect to the server: {e}")
         print("Did you start the server (server.py)?")
         return False
+
 
 def chat_with_bot(prompt):
     """Sends a chat message to the server and receives the response."""
